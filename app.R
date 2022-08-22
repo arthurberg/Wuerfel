@@ -27,8 +27,8 @@ ui <- fluidPage(# App title ----
                             "select",
                             label = "Wähle den Würfel aus, der gerollt werden soll:",
                             choiceNames = list(
-                                HTML("<b>Regulärer Würfel</b> (alle Augenzahlen gleichwahr- scheinlich)"),
-                                HTML("<b>3fach verzerrter Würfel</b> (1-6 mit Wahrscheinlich- keiten von 8, 8, 64, 1, 6 und 13%)"),
+                                HTML("<b>Regulärer Würfel</b> (alle Augenzahlen gleichwahrscheinlich)"),
+                                HTML("<b>3fach verzerrter Würfel</b> (1-6 mit Wahrscheinlichkeiten von 8, 8, 64, 1, 6 und 13%)"),
                                 HTML("<b>
 Benutzerdefinierter Würfel</b> (Werte in 2 eintragen!)"),
                                 HTML("<b>Mysteriöser Würfel 1: </b> 1⁄2 für regulären Würfel, 1⁄2 für 3fach verzerrten Würfel"),
@@ -337,7 +337,7 @@ server <- function(input, output) {
     pt1 <- reactive({
         df=data.frame(table(factor(rolls3(),levels=1:6)))
         
-        ggplot(df,aes(x=Var1,y=Freq)) + geom_bar(stat="identity",width=0.5) + theme_minimal()+theme(text = element_text(size = 20),plot.title = element_text(size=18)) +geom_text(aes(label=Freq), vjust=1.6, color="white", size=6) + xlab("") + ylab("Frequency") + ggtitle("Tabellierte Ergebnisse")
+        ggplot(df,aes(x=Var1,y=Freq)) + geom_bar(stat="identity",width=0.5) + theme_minimal()+theme(text = element_text(size = 20),plot.title = element_text(size=18)) +geom_text(aes(label=Freq), vjust=1.6, color="white", size=6) + xlab("") + ylab("Häufigkeiten") + ggtitle("Tabellierte Ergebnisse")
         
     })   
     pt2 <- reactive({
